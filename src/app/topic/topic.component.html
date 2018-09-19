@@ -2,11 +2,11 @@
   topic works!
 </p>
 
-<h6>
+<!-- <h6>
   {{threadDtos[0].topicName}}
-</h6>
+</h6> -->
 
-<ul style="list-style: none;">
+<!-- <ul style="list-style: none;">
   <li *ngFor="let threadDto of threadDtos">
     <article class="thread">
       <p>{{threadDto.content}}</p>
@@ -15,7 +15,19 @@
       </p>
       </article>
   </li>
-</ul>
+</ul> -->
+<div *ngIf="threadPageDto">
+  <ul style="list-style: none;">
+    <li *ngFor="let threadDto of threadPageDto.threadDTOs">
+      <article class="thread">
+        <p>{{threadDto.content}}</p>
+        <p class="threadDetail">
+        {{threadDto.username}} {{threadDto.createdOn}}
+        </p>
+        </article>
+    </li>
+  </ul>
+</div>
 
 
 <!-- <app-thread></app-thread> -->
