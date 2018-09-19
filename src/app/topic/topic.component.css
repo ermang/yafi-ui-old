@@ -1,0 +1,10 @@
+.thread {
+    border-style: solid;
+    margin: 1em;
+}
+
+.threadDetail {
+    text-align: right;
+    /* display: inline-block; */
+    border-style: solid;
+}

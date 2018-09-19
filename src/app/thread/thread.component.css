@@ -1,0 +1,9 @@
+.thread {
+    border-style: solid;
+}
+
+.threadDetail {
+    text-align: right;
+    /* display: inline-block; */
+    border-style: solid;
+}

@@ -1,0 +1,21 @@
+<p>
+  topic works!
+</p>
+
+<h6>
+  {{threadDtos[0].topicName}}
+</h6>
+
+<ul style="list-style: none;">
+  <li *ngFor="let threadDto of threadDtos">
+    <article class="thread">
+      <p>{{threadDto.content}}</p>
+      <p class="threadDetail">
+      {{threadDto.username}} {{threadDto.createdOn}}
+      </p>
+      </article>
+  </li>
+</ul>
+
+
+<!-- <app-thread></app-thread> -->
