@@ -8,3 +8,16 @@
     /* display: inline-block; */
     border-style: solid;
 }
+
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.flexItemInitial {
+    flex: initial;
+}
+
+.flexItemAuto {
+    flex: auto;
+}

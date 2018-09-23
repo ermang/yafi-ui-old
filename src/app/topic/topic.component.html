@@ -2,44 +2,35 @@
   topic works!
 </p>
 
+<div class="flexContainer">
+  <div class="flexItemInitial">
+    <div *ngIf="topicDtos"> 
+      <ul style="list-style: none;">
+        <li *ngFor="let topicDto of topicDtos">
+          {{topicDto.name}}
+        </li>
+      </ul>
+    </div>
+  </div> 
 
+  <div *ngIf="threadPageDto" class="flexItemAuto">
+    <ul style="list-style: none;">
+      <li *ngFor="let threadDto of threadPageDto.threadDTOs">
+        <article class="thread">
+          <p>{{threadDto.content}}</p>
+          <p class="threadDetail">
+          {{threadDto.username}} {{threadDto.createdOn}}
+          </p>
+          </article>
+      </li>
+    </ul>
 
-<div *ngIf="topicDtos"> 
-  <ul style="list-style: none;">
-    <li *ngFor="let topicDto of topicDtos">
-      {{topicDto.name}}
-    </li>
-  </ul>
-</div> 
+    <input [(ngModel)]="content" placeholder="name">  <button (click)="postThread()">Click me!</button>
+  </div>
 
-<!-- <h6>
-  {{threadDtos[0].topicName}}
-</h6> -->
-
-<!-- <ul style="list-style: none;">
-  <li *ngFor="let threadDto of threadDtos">
-    <article class="thread">
-      <p>{{threadDto.content}}</p>
-      <p class="threadDetail">
-      {{threadDto.username}} {{threadDto.createdOn}}
-      </p>
-      </article>
-  </li>
-</ul> -->
-<div *ngIf="threadPageDto">
-  <ul style="list-style: none;">
-    <li *ngFor="let threadDto of threadPageDto.threadDTOs">
-      <article class="thread">
-        <p>{{threadDto.content}}</p>
-        <p class="threadDetail">
-        {{threadDto.username}} {{threadDto.createdOn}}
-        </p>
-        </article>
-    </li>
-  </ul>
 </div>
 
-<input [(ngModel)]="content" placeholder="name">  <button (click)="postThread()">Click me!</button>
+
 
 
 <!-- <app-thread></app-thread> -->
