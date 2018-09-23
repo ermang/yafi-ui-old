@@ -4,7 +4,7 @@ import { ThreadDTO } from '../dto/thread-dto';
 import { YafiService } from '../yafi.service';
 import { ThreadPageDto } from '../dto/thread-page-dto';
 import { CreateThreadDto } from '../dto/create-thread-dto';
-
+import { TopicDto } from "../dto/topic-dto";
 @Component({
   selector: 'app-topic',
   templateUrl: './topic.component.html',
@@ -19,6 +19,8 @@ export class TopicComponent implements OnInit {
   
   threadPageDto: ThreadPageDto;
 
+  topicDtos: TopicDto[];
+
   constructor(private yafiService: YafiService) { 
     this.name = 'topic1';  
   }
@@ -27,6 +29,8 @@ export class TopicComponent implements OnInit {
     //  this.yafiService.readThreadsFromTopic(). subscribe( x => {this.threadPageDto = {threadDtos: x.threadDTOs, totalPageCount: x.totalPageCount}; console.log(this.threadPageDto);});    
     
      this.yafiService.readThreadsFromTopic(). subscribe( threadPageDto => this.threadPageDto = threadPageDto);
+
+     this.yafiService.readMostRecentlyUpdatedTopics().subscribe(topicDtos => this.topicDtos = topicDtos);
   }
 
   postThread() {

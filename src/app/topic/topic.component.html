@@ -2,6 +2,16 @@
   topic works!
 </p>
 
+
+
+<div *ngIf="topicDtos"> 
+  <ul style="list-style: none;">
+    <li *ngFor="let topicDto of topicDtos">
+      {{topicDto.name}}
+    </li>
+  </ul>
+</div> 
+
 <!-- <h6>
   {{threadDtos[0].topicName}}
 </h6> -->
