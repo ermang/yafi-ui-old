@@ -25,10 +25,8 @@ export class TopicComponent implements OnInit {
     this.name = 'topic1';  
   }
 
-  ngOnInit() {
-    //  this.yafiService.readThreadsFromTopic(). subscribe( x => {this.threadPageDto = {threadDtos: x.threadDTOs, totalPageCount: x.totalPageCount}; console.log(this.threadPageDto);});    
-    
-     this.yafiService.readThreadsFromTopic(). subscribe( threadPageDto => this.threadPageDto = threadPageDto);
+  ngOnInit() {    
+     this.yafiService.readThreadsFromTopic('topic1'). subscribe( threadPageDto => this.threadPageDto = threadPageDto);
 
      this.yafiService.readMostRecentlyUpdatedTopics().subscribe(topicDtos => this.topicDtos = topicDtos);
   }
@@ -36,10 +34,15 @@ export class TopicComponent implements OnInit {
   postThread() {
     console.debug('You are my hero!');
     console.debug('content=', this.content);
-    //createThreadDto: CreateThreadDto;
+   
     let createThreadDto = new CreateThreadDto(this.content, this.name);
 
     this.yafiService.createThread(createThreadDto).subscribe();
+  }
+
+  readThreadsFromTopic(topicDto: TopicDto) {
+    console.debug('onClickMe', topicDto);
+    this.yafiService.readThreadsFromTopic(topicDto.name). subscribe( threadPageDto => this.threadPageDto = threadPageDto);
   }
 
 }

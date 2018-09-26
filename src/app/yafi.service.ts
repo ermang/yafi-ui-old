@@ -13,8 +13,8 @@ export class YafiService {
 
   constructor(private http: HttpClient) { }
 
-  readThreadsFromTopic (): Observable<ThreadPageDto> {
-    return this.http.get<ThreadPageDto>(this.baseUrl + 'topic/topic1?page=0');
+  readThreadsFromTopic (topicName: String): Observable<ThreadPageDto> {
+    return this.http.get<ThreadPageDto>(this.baseUrl + 'topic/' + topicName + '?page=0');
   }
 
   readMostRecentlyUpdatedTopics(): Observable<TopicDto[]> {

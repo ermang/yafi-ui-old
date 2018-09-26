@@ -4,12 +4,16 @@
 
 <div class="flexContainer">
   <div class="flexItemInitial">
-    <div *ngIf="topicDtos"> 
+    <div *ngIf="topicDtos">
+      <h2>topics of the day</h2> 
       <ul style="list-style: none;">
         <li *ngFor="let topicDto of topicDtos">
-          {{topicDto.name}}
+          <a (click)="readThreadsFromTopic(topicDto)">{{topicDto.name}}</a>
         </li>
       </ul>
+    </div>
+    <div *ngIf="topicDtos?.length == 0">
+      No recent topics today
     </div>
   </div> 
 
