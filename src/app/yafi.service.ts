@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { ThreadPageDto } from "./dto/thread-page-dto";
 import { CreateThreadDto } from "./dto/create-thread-dto";
 import { TopicDto } from "./dto/topic-dto";
+import { ThreadDTO } from './dto/thread-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,10 @@ export class YafiService {
 
   readMostRecentlyUpdatedTopics(): Observable<TopicDto[]> {
     return this.http.get<TopicDto[]>(this.baseUrl + 'topics/recent');
+  }
+
+  readRecentThreads(): Observable<ThreadDTO[]> {
+    return this.http.get<ThreadDTO[]>(this.baseUrl + 'threads/recent');
   }
 
   createThread(createThreadDto: CreateThreadDto) {

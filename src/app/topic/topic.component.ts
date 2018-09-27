@@ -21,14 +21,18 @@ export class TopicComponent implements OnInit {
 
   topicDtos: TopicDto[];
 
+  threadDtos: ThreadDTO[];
+
   constructor(private yafiService: YafiService) { 
     this.name = 'topic1';  
   }
 
   ngOnInit() {    
-     this.yafiService.readThreadsFromTopic('topic1'). subscribe( threadPageDto => this.threadPageDto = threadPageDto);
+     //this.yafiService.readThreadsFromTopic('topic1'). subscribe( threadPageDto => this.threadPageDto = threadPageDto);
 
-     this.yafiService.readMostRecentlyUpdatedTopics().subscribe(topicDtos => this.topicDtos = topicDtos);
+     this.yafiService.readRecentThreads().subscribe (ThreadDTOs => this.threadDtos = ThreadDTOs);
+
+     //this.yafiService.readMostRecentlyUpdatedTopics().subscribe(topicDtos => this.topicDtos = topicDtos);
   }
 
   postThread() {
