@@ -32,22 +32,6 @@
     <input [(ngModel)]="content" placeholder="name">  <button (click)="postThread()">Click me!</button>
   </div>
 
-  <div *ngIf="threadDtos" class="flexItemAuto">
-    <ul style="list-style: none;">
-      <li *ngFor="let threadDto of threadDtos">
-        <article class="thread">
-          <h3>{{threadDto.topicName}}</h3>
-          <p>{{threadDto.content}}</p>
-          <p class="threadDetail">
-          {{threadDto.username}} {{threadDto.createdOn}}
-          </p>
-          </article>
-      </li>
-    </ul>
-
-    <input [(ngModel)]="content" placeholder="name">  <button (click)="postThread()">Click me!</button>
-  </div>
-
 </div>
 
 

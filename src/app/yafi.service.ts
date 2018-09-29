@@ -22,8 +22,8 @@ export class YafiService {
     return this.http.get<TopicDto[]>(this.baseUrl + 'topics/recent');
   }
 
-  readRecentThreads(): Observable<ThreadDTO[]> {
-    return this.http.get<ThreadDTO[]>(this.baseUrl + 'threads/recent');
+  readRecentThreads(): Observable<ThreadPageDto> {
+    return this.http.get<ThreadPageDto>(this.baseUrl + 'threads/recent?page=0');
   }
 
   createThread(createThreadDto: CreateThreadDto) {
