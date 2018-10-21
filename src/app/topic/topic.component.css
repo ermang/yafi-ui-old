@@ -21,3 +21,17 @@
 .flexItemAuto {
     flex: auto;
 }
+
+i {
+    display: inline-block;
+    /* width: 100px;
+    height: 100px; */
+    /* background: red; */
+    /* -webkit-transition: width 2s, height 2s, -webkit-transform 2s; Safari */
+    transition: width 1s, height 1s, transform 1s;
+}
+
+i:active {
+    transition: width 1s, height 1s, transform 1s;
+    transform: rotate(360deg);
+}

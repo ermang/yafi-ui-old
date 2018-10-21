@@ -46,4 +46,8 @@ export class TopicComponent implements OnInit {
     this.yafiService.readThreadsFromTopic(topicDto.name). subscribe( threadPageDto => this.threadPageDto = threadPageDto);
   }
 
+  readRecentTopics() {
+    this.yafiService.readMostRecentlyUpdatedTopics().subscribe(topicDtos => this.topicDtos = topicDtos);
+  }
+
 }

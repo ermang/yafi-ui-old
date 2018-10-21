@@ -1,11 +1,8 @@
-<p>
-  topic works!
-</p>
-
 <div class="flexContainer">
   <div class="flexItemInitial">
     <div *ngIf="topicDtos">
-      <h2>topics of the day</h2> 
+      <h2>topics of the day <i (click)="readRecentTopics()">&#8635;</i>
+      </h2>
       <ul style="list-style: none;">
         <li *ngFor="let topicDto of topicDtos">
           <a (click)="readThreadsFromTopic(topicDto)">{{topicDto.name}}</a>
@@ -33,8 +30,3 @@
   </div>
 
 </div>
-
-
-
-
-<!-- <app-thread></app-thread> -->
