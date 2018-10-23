@@ -10,7 +10,8 @@ import { ThreadDTO } from './dto/thread-dto';
   providedIn: 'root'
 })
 export class YafiService {
-  baseUrl = "http://localhost:8080/"
+  baseUrl = "http://localhost:8080/";
+  jSessionId: String;
 
   constructor(private http: HttpClient) { }
 
@@ -28,6 +29,22 @@ export class YafiService {
 
   createThread(createThreadDto: CreateThreadDto) {
 
+    // var t = 'user' + ':' + 'user';
+    // var hat = 'Basic ' + btoa(t);
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        // 'Content-Type':  'application/json',
+        // 'Authorization': hat
+      }),
+      withCredentials: true
+    };
+
+    return this.http.post(this.baseUrl + 'thread', createThreadDto, httpOptions); //, httpOptions
+  }
+
+  login(username, password) {
+
     var t = 'user' + ':' + 'user';
     var hat = 'Basic ' + btoa(t);
 
@@ -35,9 +52,11 @@ export class YafiService {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Authorization': hat
-      })
+      },
+    ),
+    withCredentials: true
     };
 
-    return this.http.post(this.baseUrl + 'thread', createThreadDto, httpOptions);
+    return this.http.post(this.baseUrl + 'login', null, httpOptions);
   }
 }

@@ -1,0 +1,14 @@
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;   
+}
+
+.flexItemInitial {
+    flex: initial;    
+}
+
+.flexItemAuto {
+    display: inline;
+    flex: auto;
+}

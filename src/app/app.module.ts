@@ -6,12 +6,14 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent } from './app.component';
 import { ThreadComponent } from './thread/thread.component';
 import { TopicComponent } from './topic/topic.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadComponent,
-    TopicComponent
+    TopicComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
