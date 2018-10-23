@@ -9,14 +9,17 @@ import { YafiService } from '../yafi.service';
 export class LoginComponent implements OnInit {
   username: String;
   password: String;
+  loggedIn: boolean;
 
-  constructor(private yafiService: YafiService) { }
+  constructor(private yafiService: YafiService) {
+    this.loggedIn = false;
+   }
 
   ngOnInit() {
   }
 
   login() {
-    this.yafiService.login('root', 'root').subscribe();
+    this.yafiService.login(this.username, this.password).subscribe(() => this.loggedIn = true);
   }
 
 }
