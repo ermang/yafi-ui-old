@@ -1,4 +1,4 @@
-import { ThreadDTO } from "./thread-dto";
+import { ThreadDTO } from './thread-dto';
 
 export class ThreadPageDto {
      threadDTOs: Array<ThreadDTO>;

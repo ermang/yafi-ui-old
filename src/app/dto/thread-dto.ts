@@ -1,4 +1,4 @@
-export class ThreadDTO {  
+export class ThreadDTO {
 
     id: Number;
     content: String;

@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { ThreadPageDto } from "./dto/thread-page-dto";
-import { CreateThreadDto } from "./dto/create-thread-dto";
-import { TopicDto } from "./dto/topic-dto";
+import { ThreadPageDto } from './dto/thread-page-dto';
+import { CreateThreadDto } from './dto/create-thread-dto';
+import { TopicDto } from './dto/topic-dto';
 import { ThreadDTO } from './dto/thread-dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class YafiService {
-  baseUrl = "http://localhost:8080/";
+  baseUrl = 'http://localhost:8080/';
   activeTopicName: string;
 
   constructor(private http: HttpClient) { }
@@ -29,12 +29,12 @@ export class YafiService {
 
   createThread(createThreadDto: CreateThreadDto) {
     const httpOptions = {
-      headers: new HttpHeaders({    
+      headers: new HttpHeaders({
       }),
       withCredentials: true
     };
 
-    return this.http.post(this.baseUrl + 'thread', createThreadDto, httpOptions); //, httpOptions
+    return this.http.post(this.baseUrl + 'thread', createThreadDto, httpOptions); // , httpOptions
   }
 
   login(username, password) {
