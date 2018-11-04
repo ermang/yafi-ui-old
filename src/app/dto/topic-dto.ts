@@ -1,8 +1,8 @@
 export class TopicDto {
-    name: String;
-    createdBy: String
+    name: string;
+    createdBy: string
 
-    constructor(name: String, createdBy: String) {
+    constructor(name: string, createdBy: string) {
         this.name = name;
         this.createdBy = createdBy;
     }

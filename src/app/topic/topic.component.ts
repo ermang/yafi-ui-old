@@ -11,20 +11,12 @@ import { TopicDto } from "../dto/topic-dto";
   styleUrls: ['./topic.component.css']
 })
 export class TopicComponent implements OnInit {
-  name: String;
-
-  //asd
-  content:String;
- 
-  
+  activeTopicName: string;  
+  content:String;  
   threadPageDto: ThreadPageDto;
+  topicDtos: TopicDto[];  
 
-  topicDtos: TopicDto[];
-
-  //threadDtos: ThreadDTO[];
-
-  constructor(private yafiService: YafiService) { 
-    this.name = 'topic1';  
+  constructor(private yafiService: YafiService) {     
   }
 
   ngOnInit() {
@@ -32,11 +24,9 @@ export class TopicComponent implements OnInit {
      this.yafiService.readMostRecentlyUpdatedTopics().subscribe(topicDtos => this.topicDtos = topicDtos);
   }
 
-  postThread() {
-    console.debug('You are my hero!');
-    console.debug('content=', this.content);
-   
-    let createThreadDto = new CreateThreadDto(this.content, this.name);
+  postThread() {    
+    console.debug('content=', this.content);   
+    let createThreadDto = new CreateThreadDto(this.content, this.activeTopicName);
 
     this.yafiService.createThread(createThreadDto).subscribe();
   }
@@ -44,6 +34,7 @@ export class TopicComponent implements OnInit {
   readThreadsFromTopic(topicDto: TopicDto) {
     console.debug('readThreadsFromTopic', topicDto);
     this.yafiService.readThreadsFromTopic(topicDto.name). subscribe( threadPageDto => this.threadPageDto = threadPageDto);
+    this.activeTopicName = topicDto.name; 
   }
 
   readRecentTopics() {

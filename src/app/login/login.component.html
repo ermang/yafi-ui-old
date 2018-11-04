@@ -13,9 +13,9 @@
         <label for="name">password</label>
         <input [(ngModel)]="password" type="password">
         <button (click)="login()">login</button>  
-    </div>  
-    <div *ngIf="loggedIn == true">
-      <label>Welcome {{username}}</label>
-    </div>
+      </div>  
+      <div *ngIf="loggedIn == true">
+        <label>Welcome {{username}}</label>
+      </div>
   </div>
 </div>
