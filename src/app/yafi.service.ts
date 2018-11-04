@@ -11,12 +11,12 @@ import { ThreadDTO } from './dto/thread-dto';
 })
 export class YafiService {
   baseUrl = "http://localhost:8080/";
-  jSessionId: String;
+  activeTopicName: string;
 
   constructor(private http: HttpClient) { }
 
-  readThreadsFromTopic (topicName: String): Observable<ThreadPageDto> {
-    return this.http.get<ThreadPageDto>(this.baseUrl + 'topic/' + topicName + '?page=0');
+  readThreadsFromTopic (topicName: String, page: number = 0): Observable<ThreadPageDto> {
+    return this.http.get<ThreadPageDto>(this.baseUrl + 'topic/' + topicName + '?page=' + page);
   }
 
   readMostRecentlyUpdatedTopics(): Observable<TopicDto[]> {
@@ -28,14 +28,8 @@ export class YafiService {
   }
 
   createThread(createThreadDto: CreateThreadDto) {
-
-    // var t = 'user' + ':' + 'user';
-    // var hat = 'Basic ' + btoa(t);
-
     const httpOptions = {
-      headers: new HttpHeaders({
-        // 'Content-Type':  'application/json',
-        // 'Authorization': hat
+      headers: new HttpHeaders({    
       }),
       withCredentials: true
     };
@@ -58,5 +52,13 @@ export class YafiService {
     };
 
     return this.http.post(this.baseUrl + 'login', null, httpOptions);
+  }
+
+  setActiveTopicName(activeTopicName: string) {
+    this.activeTopicName = activeTopicName;
+  }
+
+  getActiveTopicName(): string {
+    return this.activeTopicName;
   }
 }

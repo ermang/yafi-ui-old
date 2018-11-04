@@ -35,10 +35,16 @@ export class TopicComponent implements OnInit {
     console.debug('readThreadsFromTopic', topicDto);
     this.yafiService.readThreadsFromTopic(topicDto.name). subscribe( threadPageDto => this.threadPageDto = threadPageDto);
     this.activeTopicName = topicDto.name; 
+    this.yafiService.setActiveTopicName(topicDto.name);
   }
 
   readRecentTopics() {
     this.yafiService.readMostRecentlyUpdatedTopics().subscribe(topicDtos => this.topicDtos = topicDtos);
+  }
+
+  onPageChange(threadPageDto: ThreadPageDto) {
+    console.log("onPageChange", threadPageDto);
+    this.threadPageDto = threadPageDto;
   }
 
 }

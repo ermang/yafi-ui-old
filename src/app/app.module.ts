@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { ThreadComponent } from './thread/thread.component';
 import { TopicComponent } from './topic/topic.component';
 import { LoginComponent } from './login/login.component';
+import { PagingComponent } from './paging/paging.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThreadComponent,
     TopicComponent,
-    LoginComponent
+    LoginComponent,
+    PagingComponent
   ],
   imports: [
     BrowserModule,
