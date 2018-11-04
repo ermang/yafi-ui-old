@@ -45,8 +45,8 @@ export class YafiService {
 
   login(username, password) {
 
-    var t = 'user' + ':' + 'user';
-    var hat = 'Basic ' + btoa(t);
+    const t: string = username + ':' + password;
+    const hat: string = 'Basic ' + btoa(t);
 
     const httpOptions = {
       headers: new HttpHeaders({
