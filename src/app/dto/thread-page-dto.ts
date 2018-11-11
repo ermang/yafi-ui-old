@@ -2,9 +2,9 @@ import { ThreadDTO } from './thread-dto';
 
 export class ThreadPageDto {
      threadDTOs: Array<ThreadDTO>;
-     totalPageCount: Number;
+     totalPageCount: number;
 
-     constructor(threadDTOs: Array<ThreadDTO>, totalPageCount: Number) {
+     constructor(threadDTOs: Array<ThreadDTO>, totalPageCount: number) {
          this.threadDTOs = threadDTOs;
          this.totalPageCount = totalPageCount;
      }

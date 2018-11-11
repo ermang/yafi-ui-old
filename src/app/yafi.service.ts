@@ -11,9 +11,9 @@ import { ThreadDTO } from './dto/thread-dto';
 })
 export class YafiService {
   baseUrl = 'http://localhost:8080/';
-  activeTopicName: string;
+  activeTopicName: string;  
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   readThreadsFromTopic (topicName: String, page: number = 0): Observable<ThreadPageDto> {
     return this.http.get<ThreadPageDto>(this.baseUrl + 'topic/' + topicName + '?page=' + page);
@@ -60,5 +60,5 @@ export class YafiService {
 
   getActiveTopicName(): string {
     return this.activeTopicName;
-  }
+  }  
 }

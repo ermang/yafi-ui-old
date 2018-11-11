@@ -15,8 +15,11 @@ export class TopicComponent implements OnInit {
   content: String;
   threadPageDto: ThreadPageDto;
   topicDtos: TopicDto[];
+  pagingEnabled: boolean;
+  totalPageCount: number;
 
   constructor(private yafiService: YafiService) {
+    this.pagingEnabled = false;
   }
 
   ngOnInit() {
@@ -33,18 +36,24 @@ export class TopicComponent implements OnInit {
 
   readThreadsFromTopic(topicDto: TopicDto) {
     console.debug('readThreadsFromTopic', topicDto);
-    this.yafiService.readThreadsFromTopic(topicDto.name). subscribe( threadPageDto => this.threadPageDto = threadPageDto);
+    this.yafiService.readThreadsFromTopic(topicDto.name). subscribe( threadPageDto => {
+      this.threadPageDto = threadPageDto;
+      this.pagingEnabled = true;
+      this.totalPageCount = this.threadPageDto.totalPageCount;
+      console.log('TopicComponent.totalPageCount=', this.totalPageCount);
+    });    
     this.activeTopicName = topicDto.name;
     this.yafiService.setActiveTopicName(topicDto.name);
+    
   }
 
   readRecentTopics() {
     this.yafiService.readMostRecentlyUpdatedTopics().subscribe(topicDtos => this.topicDtos = topicDtos);
-  }
+  }  
 
-  onPageChange(threadPageDto: ThreadPageDto) {
-    console.log('onPageChange', threadPageDto);
-    this.threadPageDto = threadPageDto;
+  onPageChange(pageNumber: number) {
+    console.log('onPageChange', pageNumber);
+    this.yafiService.readThreadsFromTopic(this.yafiService.getActiveTopicName(), pageNumber-1).subscribe( threadPageDto => this.threadPageDto = threadPageDto);
   }
 
 }

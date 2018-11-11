@@ -1,12 +1,13 @@
-<p>
-&lt;
-<select name="pages" [(ngModel)]="currentPage">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-</select> &gt;
-{{currentPage}}
-</p>
+<div *ngIf="_pagingEnabled == true"> 
+  <p>
+    &lt;
+    <select [(ngModel)]="currentPage">     
+      <option *ngFor="let pageNumber of totalPageCountList" [value]="pageNumber">{{pageNumber}}</option>        
+    </select>
+     &gt;
+    currentPage{{currentPage}}
+    _totalPageCount{{_totalPageCount}}
+  </p>
+</div> 
 
 
