@@ -8,6 +8,7 @@ import { ThreadComponent } from './thread/thread.component';
 import { TopicComponent } from './topic/topic.component';
 import { LoginComponent } from './login/login.component';
 import { PagingComponent } from './paging/paging.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PagingComponent } from './paging/paging.component';
     ThreadComponent,
     TopicComponent,
     LoginComponent,
-    PagingComponent
+    PagingComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

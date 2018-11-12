@@ -54,6 +54,10 @@ export class YafiService {
     return this.http.post(this.baseUrl + 'login', null, httpOptions);
   }
 
+  searchByTopicName(topicName: string): Observable<TopicDto[]> {
+    return this.http.get<TopicDto[]>(this.baseUrl + 'topics/search?topicName=' + topicName);
+  }
+
   setActiveTopicName(activeTopicName: string) {
     this.activeTopicName = activeTopicName;
   }
