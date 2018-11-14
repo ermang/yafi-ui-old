@@ -1,5 +1,5 @@
 <div class="flexItemAuto">
-  <input #searchBox (keyup)="onKey(searchBox.value)" list="osman" id="ice-cream-choice" name="ice-cream-choice" placeholder="search by topic"/> 
+  <input  [(ngModel)]="content" (keyup)="onKey($event)" list="osman" id="ice-cream-choice" name="ice-cream-choice" placeholder="search by topic"/> 
   <datalist id="osman">
       <option *ngFor="let topicDto of topicDtos" [value]="topicDto.name">
   </datalist>
