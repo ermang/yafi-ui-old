@@ -20,6 +20,7 @@ export class TopicComponent implements OnInit {
 
   constructor(private yafiService: YafiService) {
     this.pagingEnabled = false;
+    yafiService.missionAnnounced$.subscribe( searchValue => this.readThreadsFromTopic2(searchValue));
   }
 
   ngOnInit() {
@@ -54,6 +55,19 @@ export class TopicComponent implements OnInit {
   onPageChange(pageNumber: number) {
     console.log('onPageChange', pageNumber);
     this.yafiService.readThreadsFromTopic(this.yafiService.getActiveTopicName(), pageNumber-1).subscribe( threadPageDto => this.threadPageDto = threadPageDto);
+  }
+
+  readThreadsFromTopic2(value: string) { //TODO: duplicated readThreadsFromTOpic fix it
+    console.debug('readThreadsFromTopic', value);
+    this.yafiService.readThreadsFromTopic(value). subscribe( threadPageDto => {
+      this.threadPageDto = threadPageDto;
+      this.pagingEnabled = true;
+      this.totalPageCount = this.threadPageDto.totalPageCount;
+      console.log('TopicComponent.totalPageCount=', this.totalPageCount);
+    });    
+    this.activeTopicName = value;
+    this.yafiService.setActiveTopicName(value);
+    
   }
 
 }
