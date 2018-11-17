@@ -16,15 +16,15 @@ export class YafiService {
   // Observable string source
   private searchItemSelectedSource = new Subject<string>();
 
-    // Observable string streams
-    missionAnnounced$ = this.searchItemSelectedSource.asObservable();
+  // Observable string streams
+  missionAnnounced$ = this.searchItemSelectedSource.asObservable();
 
   constructor(private http: HttpClient) {}
 
-    // Service message commands
-    search(value: string) {
-      this.searchItemSelectedSource.next(value);
-    }
+  // Service message commands
+  search(value: string) {
+    this.searchItemSelectedSource.next(value);
+  }
 
   readThreadsFromTopic (topicName: String, page: number = 0): Observable<ThreadPageDto> {
     return this.http.get<ThreadPageDto>(this.baseUrl + 'topic/' + topicName + '?page=' + page);
