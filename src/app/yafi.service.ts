@@ -19,6 +19,8 @@ export class YafiService {
   // Observable string streams
   missionAnnounced$ = this.searchItemSelectedSource.asObservable();
 
+  
+
   constructor(private http: HttpClient) {}
 
   // Service message commands

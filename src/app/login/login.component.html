@@ -7,10 +7,10 @@
 
   <div class="flexItemInitial">
       <div *ngIf="loggedIn == false">
-        <label for="name">username</label>
-        <input [(ngModel)]="username" type="text">
-        <label for="name">password</label>
-        <input [(ngModel)]="password" type="password">
+        <label for="name">username:</label> &nbsp;
+        <input [(ngModel)]="username" type="text"> &nbsp;
+        <label for="name">password:</label> &nbsp;
+        <input [(ngModel)]="password" type="password"> &nbsp;
         <button (click)="login()">login</button>  
       </div>  
       <div *ngIf="loggedIn == true">

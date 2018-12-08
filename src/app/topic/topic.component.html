@@ -15,6 +15,7 @@
   </div> 
 
   <div *ngIf="threadPageDto" class="flexItemAuto">
+    <h2>{{threadPageDto.threadDTOs[0].topicName}}</h2>
     <ul style="list-style: none;">
       <li *ngFor="let threadDto of threadPageDto.threadDTOs">
         <article class="thread">
@@ -27,7 +28,7 @@
     </ul>
 
     <app-paging [pagingEnabled]="pagingEnabled" [totalPageCount]="totalPageCount" (pageChanged)="onPageChange($event)"></app-paging>
-    <input [(ngModel)]="content" placeholder="fill in the blank">  <button (click)="postThread()">Click me!</button>
+    <input [(ngModel)]="content" placeholder="type your post">  <button (click)="postThread()">post thread!</button>
   </div>
 
 </div>

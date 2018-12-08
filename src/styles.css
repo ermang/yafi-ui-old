@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+ul {margin-left: 0; padding-left: 0;}
+
+li {margin-left: 0em; margin-right: 0em; margin-top: 1em; margin-bottom: 1em;}
+
+article {margin-left: 0; padding-left: 0;}

@@ -1,6 +1,6 @@
 .thread {
     border-style: solid;
-    margin: 1em;
+    /* margin: 1em; */
 }
 
 .threadDetail {
@@ -16,6 +16,7 @@
 
 .flexItemInitial {
     flex: initial;
+    margin: 1em;
 }
 
 .flexItemAuto {
