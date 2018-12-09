@@ -20,7 +20,7 @@ export class TopicComponent implements OnInit {
 
   constructor(private yafiService: YafiService) {
     this.pagingEnabled = false;
-    yafiService.missionAnnounced$.subscribe( searchValue => this.readThreadsFromTopic2(searchValue));
+    yafiService.missionAnnounced$.subscribe( searchValue => this.readThreadsFromTopic(searchValue));
   }
 
   ngOnInit() {
@@ -34,20 +34,7 @@ export class TopicComponent implements OnInit {
 
     this.yafiService.createThread(createThreadDto).subscribe();
   }
-
-  readThreadsFromTopic(topicDto: TopicDto) {
-    console.debug('readThreadsFromTopic', topicDto);
-    this.yafiService.readThreadsFromTopic(topicDto.name). subscribe( threadPageDto => {
-      this.threadPageDto = threadPageDto;
-      this.pagingEnabled = true;
-      this.totalPageCount = this.threadPageDto.totalPageCount;
-      console.log('TopicComponent.totalPageCount=', this.totalPageCount);
-    });    
-    this.activeTopicName = topicDto.name;
-    this.yafiService.setActiveTopicName(topicDto.name);
-    
-  }
-
+  
   readRecentTopics() {
     this.yafiService.readMostRecentlyUpdatedTopics().subscribe(topicDtos => this.topicDtos = topicDtos);
   }  
@@ -57,7 +44,7 @@ export class TopicComponent implements OnInit {
     this.yafiService.readThreadsFromTopic(this.yafiService.getActiveTopicName(), pageNumber-1).subscribe( threadPageDto => this.threadPageDto = threadPageDto);
   }
 
-  readThreadsFromTopic2(value: string) { //TODO: duplicated readThreadsFromTOpic fix it
+  readThreadsFromTopic(value: string) {
     console.debug('readThreadsFromTopic', value);
     this.yafiService.readThreadsFromTopic(value). subscribe( threadPageDto => {
       this.threadPageDto = threadPageDto;

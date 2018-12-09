@@ -5,7 +5,7 @@
       </h2>
       <ul style="list-style: none;">
         <li *ngFor="let topicDto of topicDtos">
-          <a (click)="readThreadsFromTopic(topicDto)">{{topicDto.name}}</a>
+          <a (click)="readThreadsFromTopic(topicDto.name)">{{topicDto.name}}</a>
         </li>
       </ul>
     </div>
@@ -15,7 +15,7 @@
   </div> 
 
   <div *ngIf="threadPageDto" class="flexItemAuto">
-    <h2>{{threadPageDto.threadDTOs[0].topicName}}</h2>
+    <h2 style="text-align: center">{{threadPageDto.threadDTOs[0].topicName}}</h2>
     <ul style="list-style: none;">
       <li *ngFor="let threadDto of threadPageDto.threadDTOs">
         <article class="thread">
