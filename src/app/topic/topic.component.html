@@ -5,7 +5,7 @@
       </h2>
       <ul style="list-style: none;">
         <li *ngFor="let topicDto of topicDtos">
-          <a (click)="readThreadsFromTopic(topicDto.name)">{{topicDto.name}}</a>
+          <a style="cursor: pointer;" (click)="readThreadsFromTopic(topicDto.name)">{{topicDto.name}}</a>
         </li>
       </ul>
     </div>
